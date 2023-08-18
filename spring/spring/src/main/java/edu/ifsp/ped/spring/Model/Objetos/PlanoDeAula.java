@@ -259,6 +259,7 @@ public class PlanoDeAula extends Plano{
         .withResolverStyle(ResolverStyle.STRICT);
         try {
             LocalDate date = LocalDate.parse(strDate, dateTimeFormatter);
+            System.out.println(date);
             return true;
         } catch (DateTimeParseException e) {
         return false;

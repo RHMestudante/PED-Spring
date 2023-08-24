@@ -12,7 +12,7 @@ import edu.ifsp.ped.spring.Model.Objetos.Similaridade;
 public class SimilaridadeDAO {
     static Controle controle =  new Controle();
         
-    static Connection conexao = controle.getConexao();
+    static Connection conexao = controle.getConnection();
 
         public static void adiciona(Similaridade sm){  
 

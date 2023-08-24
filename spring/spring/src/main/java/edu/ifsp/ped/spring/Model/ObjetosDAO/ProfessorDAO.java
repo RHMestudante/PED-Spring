@@ -12,7 +12,7 @@ import edu.ifsp.ped.spring.Model.Objetos.Professor;
 public class ProfessorDAO {
     
     static Controle controle =  new Controle();
-    static Connection conexao = controle.getConexao();
+    static Connection conexao = controle.getConnection();
     
     public static void adicionaP(Professor prof){
 

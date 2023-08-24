@@ -12,7 +12,7 @@ import edu.ifsp.ped.spring.Model.Objetos.PlanoDeAula;
 public class PlanoAulaDAO {
 
     static Controle controle =  new Controle();
-    static Connection conexao = controle.getConexao();
+    static Connection conexao = controle.getConnection();
     
     public static void adicionaPA(PlanoDeAula plano){
         String sql = "INSERT INTO PlanoDeAula(plan_dataI,plan_nomeTurma,plan_nomeCurso,plan_caminho, prof_cod) VALUES(?,?,?,?,?)";  

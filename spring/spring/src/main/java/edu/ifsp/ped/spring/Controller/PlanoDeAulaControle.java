@@ -25,7 +25,7 @@ public class PlanoDeAulaControle {
     }
 
     @DeleteMapping("/api/v1/ped/aula/professor/planosAula/{turmaPlan}")
-    public String endPoint5(@PathVariable("turmaPlan") String turmaPlan) {
+    public String endPoint3(@PathVariable("turmaPlan") String turmaPlan) {
         try {
             PlanoAulaDAO.apagaBancoPA(turmaPlan);
             return "Plano deletado";

@@ -26,14 +26,14 @@ public class ProfessorControle {
     }
 
     @PutMapping("/api/v1/ped/aula/professor/{prof_cod}/{novoD}")
-    public String endPoint4(@PathVariable("prof_cod") int cod, @PathVariable("novoD") String dado) {
+    public String endPoint3(@PathVariable("prof_cod") int cod, @PathVariable("novoD") String dado) {
 
         ProfessorDAO.editaUsu(cod,dado);
-        return "Usuario editado";
+        return "Professor editado";
     }
 
     @DeleteMapping("/api/v1/ped/aula/professor/{prof_cod}")
-    public String endPoint5(@PathVariable("prof_cod") int id) {
+    public String endPoint4(@PathVariable("prof_cod") int id) {
         try {
             ProfessorDAO.apagaBancoProf(id);
             return "Prof deletado";

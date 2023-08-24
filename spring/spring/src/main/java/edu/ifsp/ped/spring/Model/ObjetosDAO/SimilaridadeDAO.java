@@ -88,4 +88,28 @@ public class SimilaridadeDAO {
             e.printStackTrace();
         }
     }
+
+    public static void editaValor(int ID, double nv){
+        try {
+            // Preparar a declaração SQL
+            String sql = "UPDATE similaridade SET rel_valor = ? WHERE aul_cod = ?";
+            PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+
+            // Definir os valores dos parâmetros
+            preparedStatement.setDouble(1, nv);
+            preparedStatement.setInt(2, ID);
+
+            // Executar a instrução SQL
+            int linhasAfetadas = preparedStatement.executeUpdate();
+
+            // Verificar se a edição foi bem-sucedida
+            if (linhasAfetadas > 0) {
+                System.out.println("Item editado com sucesso.");
+            } else {
+                System.out.println("Nenhum item foi editado.");
+            }
+        }catch (SQLException e) {
+                e.printStackTrace();
+        }
+    }
 }

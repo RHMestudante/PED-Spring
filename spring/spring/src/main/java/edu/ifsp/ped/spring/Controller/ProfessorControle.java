@@ -8,15 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import edu.ifsp.ped.spring.Model.Objetos.Professor;
 import edu.ifsp.ped.spring.Model.ObjetosDAO.ProfessorDAO;
 
+@RestController
 public class ProfessorControle {
 
     @GetMapping("/api/v1/ped/professor/")
-    public ArrayList<Professor> endPoint1() {
-        return ProfessorDAO.buscarBancoP();
+    public String endPoint1() {
+        return "ProfessorDAO.buscarBancoP()";
     }
 
     @PostMapping("/api/v1/ped/professor/")

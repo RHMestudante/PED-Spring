@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import edu.ifsp.ped.spring.Model.Objetos.Aula;
 import edu.ifsp.ped.spring.Model.ObjetosDAO.AulaDAO;
 
+@RestController
 public class AulaController {
 
     @GetMapping("/api/v1/ped/aula/")

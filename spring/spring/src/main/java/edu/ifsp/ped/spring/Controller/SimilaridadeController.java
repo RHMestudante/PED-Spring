@@ -13,18 +13,18 @@ import edu.ifsp.ped.spring.Model.ObjetosDAO.SimilaridadeDAO;
 
 public class SimilaridadeController {
 
-    @GetMapping("/api/v1/ped/aula/professor/similaridades/")
+    @GetMapping("/api/v1/ped/similaridades/")
     public ArrayList<Similaridade> endPoint1() {
         return SimilaridadeDAO.buscarBancoSM();
     }
 
-    @PostMapping("/api/v1/ped/aula/professor/similaridades")
+    @PostMapping("/api/v1/ped/similaridades")
     public String endPoint2(@RequestBody Similaridade similaridade) {
         SimilaridadeDAO.adiciona(similaridade);
         return "Similaridade salva";
     }
 
-    @PutMapping("/api/v1/ped/aula/professor/similaridades/{sim_cod}/{novo_v}")
+    @PutMapping("/api/v1/ped/similaridades/{sim_cod}/{novo_v}")
     public String endPoint3(@PathVariable("sim_cod") int cod, @PathVariable("novo_v") Double valor) {
         SimilaridadeDAO.editaValor(cod, valor);
         return "Similariade editada";

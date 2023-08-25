@@ -14,25 +14,25 @@ import edu.ifsp.ped.spring.Model.ObjetosDAO.ProfessorDAO;
 
 public class ProfessorControle {
 
-    @GetMapping("/api/v1/ped/aula/professor/")
-    public String endPoint1() {
-        return "Olá";
+    @GetMapping("/api/v1/ped/professor/")
+    public ArrayList<Professor> endPoint1() {
+        return ProfessorDAO.buscarBancoP();
     }
 
-    @PostMapping("/api/v1/ped/aula/professor/")
+    @PostMapping("/api/v1/ped/professor/")
     public String endPoint2(@RequestBody Professor prof) {
         ProfessorDAO.adicionaP(prof);
         return "Professor salvo";
     }
 
-    @PutMapping("/api/v1/ped/aula/professor/{prof_cod}/{novoD}")
+    @PutMapping("/api/v1/ped/professor/{prof_cod}/{novoD}")
     public String endPoint3(@PathVariable("prof_cod") int cod, @PathVariable("novoD") String dado) {
 
         ProfessorDAO.editaUsu(cod,dado);
         return "Professor editado";
     }
 
-    @DeleteMapping("/api/v1/ped/aula/professor/{prof_cod}")
+    @DeleteMapping("/api/v1/ped/professor/{prof_cod}")
     public String endPoint4(@PathVariable("prof_cod") int id) {
         try {
             ProfessorDAO.apagaBancoProf(id);

@@ -32,7 +32,7 @@ public class AulaController {
         return "Aula salva";
     }
 
-    @DeleteMapping("{/api/v1/ped/aula/{aula_cod}")
+    @DeleteMapping("/api/v1/ped/aula/{aula_cod}")
     public String endPoint4(@PathVariable("aula_cod") int cod) {
         try {
             AulaDAO.apagaBancoAula(cod);

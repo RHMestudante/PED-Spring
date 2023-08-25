@@ -17,8 +17,8 @@ import edu.ifsp.ped.spring.Model.ObjetosDAO.ProfessorDAO;
 public class ProfessorControle {
 
     @GetMapping("/api/v1/ped/professor/")
-    public String endPoint1() {
-        return "ProfessorDAO.buscarBancoP()";
+    public ArrayList<Professor> endPoint1() {
+        return ProfessorDAO.buscarBancoP();
     }
 
     @PostMapping("/api/v1/ped/professor/")

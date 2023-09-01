@@ -22,14 +22,14 @@ public class SimilaridadeController {
     }
 
     @PostMapping("/api/v1/ped/similaridades")
-    public String endPoint2(@RequestBody Similaridade similaridade) {
+    public Similaridade endPoint2(@RequestBody Similaridade similaridade) {
         SimilaridadeDAO.adiciona(similaridade);
-        return "Similaridade salva";
+        return similaridade;
     }
 
     @PutMapping("/api/v1/ped/similaridades/{sim_cod}/{novo_v}")
-    public String endPoint3(@PathVariable("sim_cod") int cod, @PathVariable("novo_v") Double valor) {
+    public Similaridade endPoint3(@PathVariable("sim_cod") int cod, @PathVariable("novo_v") Double valor) {
         SimilaridadeDAO.editaValor(cod, valor);
-        return "Similariade editada";
+        return SimilaridadeDAO.buscarBancoSM().get(cod);
     }    
 }

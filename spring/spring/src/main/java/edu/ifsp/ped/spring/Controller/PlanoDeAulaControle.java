@@ -21,18 +21,18 @@ public class PlanoDeAulaControle {
     }
 
     @PostMapping("/api/v1/ped/planosAula/")
-    public String endPoint2(@RequestBody PlanoDeAula plano) {
+    public PlanoDeAula endPoint2(@RequestBody PlanoDeAula plano) {
         PlanoAulaDAO.adicionaPA(plano);
-        return "Plano salvo";
+        return plano;
     }
 
     @DeleteMapping("/api/v1/ped/planosAula/{turmaPlan}")
-    public String endPoint3(@PathVariable("turmaPlan") String turmaPlan) {
+    public boolean endPoint3(@PathVariable("turmaPlan") String turmaPlan) {
         try {
             PlanoAulaDAO.apagaBancoPA(turmaPlan);
-            return "Plano deletado";
+            return true;
         } catch (Exception e) {
-            return "Erro " + e;
+            return false;
         }
     }
     

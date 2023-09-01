@@ -22,25 +22,24 @@ public class ProfessorControle {
     }
 
     @PostMapping("/api/v1/ped/professor/")
-    public String endPoint2(@RequestBody Professor prof) {
+    public Professor endPoint2(@RequestBody Professor prof) {
         ProfessorDAO.adicionaP(prof);
-        return "Professor salvo";
+        return prof;
     }
 
     @PutMapping("/api/v1/ped/professor/{prof_cod}/{novoD}")
-    public String endPoint3(@PathVariable("prof_cod") int cod, @PathVariable("novoD") String dado) {
-
+    public Professor endPoint3(@PathVariable("prof_cod") int cod, @PathVariable("novoD") String dado) {
         ProfessorDAO.editaUsu(cod,dado);
-        return "Professor editado";
+        return ProfessorDAO.buscarBancoP().get(cod);
     }
 
     @DeleteMapping("/api/v1/ped/professor/{prof_cod}")
-    public String endPoint4(@PathVariable("prof_cod") int id) {
+    public boolean endPoint4(@PathVariable("prof_cod") int id) {
         try {
             ProfessorDAO.apagaBancoProf(id);
-            return "Prof deletado";
+            return true;
         } catch (Exception e) {
-            return "Erro " + e;
+            return false;
         }
     }
     

@@ -28,8 +28,8 @@ public class SimilaridadeController {
     }
 
     @PutMapping("/api/v1/ped/similaridades/{sim_cod}/{novo_v}")
-    public Similaridade endPoint3(@PathVariable("sim_cod") int cod, @PathVariable("novo_v") Double valor) {
+    public boolean endPoint3(@PathVariable("sim_cod") int cod, @PathVariable("novo_v") Double valor) {
         SimilaridadeDAO.editaValor(cod, valor);
-        return SimilaridadeDAO.buscarBancoSM().get(cod);
+        return true;
     }    
 }

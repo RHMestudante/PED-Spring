@@ -23,7 +23,13 @@ public class AulaController {
     @GetMapping("/api/v1/ped/aula/{aula_cod}")
     public Aula endPoint2(@PathVariable("aula_cod") int cod) {
         ArrayList<Aula> aulas = AulaDAO.buscarBancoA();
-        return aulas.get(cod);
+        Aula ret = new Aula(null, null, null);
+        for(Aula aula : aulas){
+            if(aula.getCod() == cod){
+                ret = aula;
+            }
+        }
+        return ret;
     }
 
     @PostMapping("/api/v1/ped/aula/")

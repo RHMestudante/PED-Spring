@@ -57,11 +57,10 @@ public class AulaDAO {
                 String data = resultSet.getString("aul_data");
                 String descricao = resultSet.getString("aul_descricao");
                 String planTurma = resultSet.getString("plan_Turma");
+                int cod = resultSet.getInt("aul_cod");
             
-                
                 Aula aula = new Aula(data, descricao, planTurma);
-
-
+                aula.setCod(cod);
                 // Adicionar o valor à lista
                 aulas.add(aula);
             }
@@ -75,7 +74,7 @@ public class AulaDAO {
     public static void editaAula(int aulaID, String nova){
         try {
             // Preparar a declaração SQL
-            String sql = "UPDATE aula SET aul_descricao = ? WHERE id = ?";
+            String sql = "UPDATE aula SET aul_descricao = ? WHERE aul_cod = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
 
             // Definir os valores dos parâmetros

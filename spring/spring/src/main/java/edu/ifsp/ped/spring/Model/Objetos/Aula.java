@@ -8,11 +8,20 @@ import edu.ifsp.ped.spring.Model.ObjetosDAO.SimilaridadeDAO;
 public class Aula {
     String data, descricao;
     String planTurma;
+    int cod;
 
     public Aula(String data, String descricao, String planTurma) {
         this.data = data;
         this.descricao = descricao;
         this.planTurma = planTurma;
+    }
+
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
     }
 
     public String getData() {

@@ -20,7 +20,7 @@ public class PlanoDeAulaControle {
         return PlanoAulaDAO.buscarBancoPA();
     }
 
-    @PostMapping("/api/v1/ped/planosAula/")
+    @PostMapping("/api/v1/ped/planosAula")
     public PlanoDeAula endPoint2(@RequestBody PlanoDeAula plano) {
         PlanoAulaDAO.adicionaPA(plano);
         return plano;

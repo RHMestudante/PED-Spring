@@ -16,7 +16,7 @@ import edu.ifsp.ped.spring.Model.ObjetosDAO.PlanoAulaDAO;
 import edu.ifsp.ped.spring.Model.ObjetosDAO.ProfessorDAO;
 import edu.ifsp.ped.spring.Model.ObjetosDAO.SimilaridadeDAO;
 
-public class PlanoDeAula extends Plano{
+public class PlanoDeAula{
 
     String dataI, turma, curso, caminho;
     int codProf, planCod;
@@ -25,10 +25,10 @@ public class PlanoDeAula extends Plano{
     
 
     public PlanoDeAula(String dataI, String turma, String curso, String caminho, int codProf, int codPlan) {
-        this.dataI = this.getDataI();
+        this.dataI = dataI;
         this.turma = turma;
         this.curso = curso;
-        this.caminho = this.getCaminho();
+        this.caminho = caminho;
         this.codProf = codProf;
         this.planCod = codPlan;
     }
@@ -81,18 +81,7 @@ public class PlanoDeAula extends Plano{
         this.planCod = planCod;
     }
 
-    @Override
-    protected void QuantasAulas(int codPlan) {
-        int q = 0;
-        for(Aula aula : aulas){
-            if(aula.getplanTurma() == turma){
-                q = q + 1;
-            }
-        }
-        System.out.println(q);  
-    }
-
-    public static PlanoDeAula adiocionarPlano(String caminho1) {
+    public static PlanoDeAula adiocionarPlano(String caminho1, int profCod) {
 
         ArrayList<String> TodasPalavras = new ArrayList<>();
         ArrayList<Integer> nData = new ArrayList<>();
@@ -169,34 +158,6 @@ public class PlanoDeAula extends Plano{
         }
 
         //Salvar Objetos
-
-        //Professor
-
-        String nomeP = "";
-        for(int c = Iprof+ 1; c < Fprof -1 ; c++){
-            nomeP = nomeP + " " + TodasPalavras.get(c);
-        }
-        boolean temPIgual = false;
-        int profCod =804202100;
-        int countP = 1;
-        for (Professor professor : profs){
-            if(nomeP.equals(professor.getNomeC())){
-                temPIgual = true;
-                profCod = countP;
-            }
-            countP = countP +1;
-        }
-        nomeP.trim();
-        if(profCod == 804202100){
-            profCod = countP;
-        }
-        Professor prof = new Professor(nomeP);
-        if(temPIgual == false){
-            profs.add(prof);
-            ProfessorDAO.adicionaP(prof);
-        }
-
-
         //PlanoDeAula
         String curso = "";
         for(int c = Icurso+ 1; c < Fcurso -1 ; c++){
@@ -242,12 +203,6 @@ public class PlanoDeAula extends Plano{
 
         }
     }
-        SimilaridadeDAO.apagaBancoSM();
-        Aula.calcularSm();
-        ArrayList<Similaridade> simis = SimilaridadeDAO.buscarBancoSM();
-        System.out.println(profs.size());
-        System.out.println(planos.size());
-        System.out.println(simis.size());
         return planoAula;
 
     }

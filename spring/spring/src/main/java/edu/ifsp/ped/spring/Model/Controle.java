@@ -69,7 +69,8 @@ public class Controle {
                     "prof_cod INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "prof_nomeC VARCHAR(500)," +
                     "prof_senha VARCHAR(30)," +
-                    "prof_usuario VARCHAR(60)" +
+                    "prof_usuario VARCHAR(60)," +
+                    "prof_atual INTEGER" +
                     ");" +
                     "CREATE TABLE IF NOT EXISTS coordenador (" +
                     "coo_cod INTEGER PRIMARY KEY AUTOINCREMENT," +

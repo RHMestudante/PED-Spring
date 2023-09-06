@@ -53,10 +53,10 @@ public class ProfessorDAO {
                 String nomeC = resultSet.getString("prof_nomeC");
                 String usuario = resultSet.getString("prof_usuario");
                 String senha = resultSet.getString("prof_senha");
+                int atual =- resultSet.getInt("prof_atual");
 
-                Professor prof = new Professor(nomeC);
-                prof.setUsuario(usuario);
-                prof.setSenha(senha);
+                Professor prof = new Professor(nomeC, usuario, senha);
+                prof.setAtual(atual);
                 profs.add(prof);
                 
             }
@@ -90,15 +90,15 @@ public class ProfessorDAO {
         }
     }
 
-    public static void editaUsu(int ID, String nova){
+    public static void editaUsu(String nome, String nova){
         try {
             // Preparar a declaração SQL
-            String sql = "UPDATE professor SET prof_usuario = ? WHERE id = ?";
+            String sql = "UPDATE professor SET prof_usuario = ? WHERE prof_nomeC = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
 
             // Definir os valores dos parâmetros
             preparedStatement.setString(1, nova);
-            preparedStatement.setInt(2, ID);
+            preparedStatement.setString(2, nome);
 
             // Executar a instrução SQL
             int linhasAfetadas = preparedStatement.executeUpdate();
@@ -114,14 +114,14 @@ public class ProfessorDAO {
         }
     }
 
-    public static void apagaBancoProf(int ID){
+    public static void apagaBancoProf(String nome){
 
         try {
             // Preparar a declaração SQL
-            String sql = "DELETE FROM professor WHERE prof_cod = ?";
+            String sql = "DELETE FROM professor WHERE prof_nomeC = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(sql);
             // Definir o valor do parâmetro
-            preparedStatement.setInt(1, ID);
+            preparedStatement.setString(1, nome);
 
             // Executar a instrução SQL
             int linhasAfetadas = preparedStatement.executeUpdate();

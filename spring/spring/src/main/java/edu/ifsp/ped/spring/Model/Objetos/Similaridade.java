@@ -2,9 +2,17 @@ package edu.ifsp.ped.spring.Model.Objetos;
 
 import java.util.ArrayList;
 
-import edu.ifsp.ped.spring.Model.ObjetosDAO.AulaDAO;
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 
 public class Similaridade {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int cod;
 
     int a1, a2;
     double valor;

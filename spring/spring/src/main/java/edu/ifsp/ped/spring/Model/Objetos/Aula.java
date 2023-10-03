@@ -2,13 +2,21 @@ package edu.ifsp.ped.spring.Model.Objetos;
 
 import java.util.ArrayList;
 
-import edu.ifsp.ped.spring.Model.ObjetosDAO.AulaDAO;
-import edu.ifsp.ped.spring.Model.ObjetosDAO.SimilaridadeDAO;
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 
 public class Aula {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int cod;
+
     String data, descricao;
     String planTurma;
-    int cod;
+
 
     public Aula(String data, String descricao, String planTurma) {
         this.data = data;

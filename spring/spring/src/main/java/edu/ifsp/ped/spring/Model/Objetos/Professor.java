@@ -1,17 +1,26 @@
 package edu.ifsp.ped.spring.Model.Objetos;
 
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToOne;
+
+
+@Entity
 public class Professor{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     String nomeC, usuario, senha;
 
     int atual;
 
-
-    public Professor(String nomeC, String usuario, String senha) {
-        this.nomeC = nomeC;
-        this.usuario = usuario;
-        this.senha = senha;
-    }
+    @OneToOne(mappedBy = "professor")
+    private PlanoDeAula planoDeAula;
 
     public String getNomeC() {
         return nomeC;
@@ -43,6 +52,10 @@ public class Professor{
 
     public void setAtual(int usuA) {
         this.atual = usuA;
+    }
+
+    public Long getId() {
+        return null;
     }
 
 }

@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Similaridade {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     int a1, a2;

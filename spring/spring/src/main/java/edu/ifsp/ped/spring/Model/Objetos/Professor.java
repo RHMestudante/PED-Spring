@@ -2,10 +2,9 @@ package edu.ifsp.ped.spring.Model.Objetos;
 
 import org.springframework.data.annotation.Id;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.OneToOne;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 
 @Entity
@@ -18,9 +17,6 @@ public class Professor{
     String nomeC, usuario, senha;
 
     int atual;
-
-    @OneToOne(mappedBy = "professor")
-    private PlanoDeAula planoDeAula;
 
     public String getNomeC() {
         return nomeC;

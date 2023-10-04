@@ -1,16 +1,17 @@
 package edu.ifsp.ped.spring.Model.Objetos;
 
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 
 @Entity
 public class Aula {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     String data, descricao;
@@ -28,15 +29,25 @@ public class Aula {
         return descricao;
     }
 
-    public String getplanTurma() {
+    public String getPlanTurma() {
         return planTurma;
     }
-
-    public void setplanTurma(String planTurma) {
+    
+    public void setPlanTurma(String planTurma) {
         this.planTurma = planTurma;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    
 }

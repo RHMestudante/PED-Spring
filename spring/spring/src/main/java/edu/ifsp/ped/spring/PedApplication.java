@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "edu.ifsp.ped.spring")
 @ComponentScan(basePackages = "edu.ifsp.ped.spring")
-@EnableJpaRepositories(basePackages = "edu.ifsp.ped.spring.repository")
+@EnableJpaRepositories(basePackages = "edu.ifsp.ped.spring")
 public class PedApplication {
 
 	public static void main(String[] args) {

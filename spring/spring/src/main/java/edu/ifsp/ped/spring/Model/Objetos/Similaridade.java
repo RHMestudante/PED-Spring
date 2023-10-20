@@ -1,5 +1,10 @@
 package edu.ifsp.ped.spring.Model.Objetos;
 
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import edu.ifsp.ped.spring.repository.AulaRepository;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -42,6 +47,5 @@ public class Similaridade {
     public Long getId() {
         return null;
     }
-
 
 }

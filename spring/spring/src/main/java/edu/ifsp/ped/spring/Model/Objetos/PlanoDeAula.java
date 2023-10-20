@@ -1,9 +1,12 @@
 package edu.ifsp.ped.spring.Model.Objetos;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class PlanoDeAula{
@@ -13,7 +16,12 @@ public class PlanoDeAula{
     private long id;
 
     String dataI, turma, curso, caminho;
-    int codProf;
+    long codProf;
+    @OneToMany(mappedBy = "planTurma")
+    List<Aula> aula;
+
+    public PlanoDeAula() {
+    }
 
     public String getDataI() {
         return dataI;
@@ -47,12 +55,24 @@ public class PlanoDeAula{
         this.caminho = caminho;
     }
 
-    public int getCodProf() {
+    public long getCodProf() {
         return codProf;
     }
 
     public void setCodProf(int codProf) {
         this.codProf = codProf;
     }
+
+    public PlanoDeAula(long id, String dataI, String turma, String curso, String caminho, long codProf,
+            List<Aula> aula) {
+        this.id = id;
+        this.dataI = dataI;
+        this.turma = turma;
+        this.curso = curso;
+        this.caminho = caminho;
+        this.codProf = codProf;
+        this.aula = aula;
+    }
+ 
 }
 

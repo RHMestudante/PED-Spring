@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 
 @Entity
@@ -15,8 +18,14 @@ public class Aula {
     private Long id;
 
     String data, descricao;
-    String planTurma;
+
+    @ManyToOne
+    PlanoDeAula planTurma;
     
+    public Aula() {
+
+    }
+
     public String getData() {
         return data;
     }
@@ -27,14 +36,6 @@ public class Aula {
 
     public String getDescricao() {
         return descricao;
-    }
-
-    public String getPlanTurma() {
-        return planTurma;
-    }
-    
-    public void setPlanTurma(String planTurma) {
-        this.planTurma = planTurma;
     }
 
     public void setDescricao(String descricao) {
@@ -49,5 +50,17 @@ public class Aula {
         this.id = id;
     }
 
-    
+    public PlanoDeAula getPlanTurma() {
+        return planTurma;
+    }
+
+    public void setPlanTurma(PlanoDeAula planTurma) {
+        this.planTurma = planTurma;
+    }
+
+    public Aula(String data, String descricao) {
+        this.data = data;
+        this.descricao = descricao;
+    }
+
 }

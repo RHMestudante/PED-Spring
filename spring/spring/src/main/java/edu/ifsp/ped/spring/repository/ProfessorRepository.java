@@ -6,4 +6,6 @@ import edu.ifsp.ped.spring.Model.Objetos.Professor;
 
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {
 
+    Professor findByUsername(String username);
+
 }

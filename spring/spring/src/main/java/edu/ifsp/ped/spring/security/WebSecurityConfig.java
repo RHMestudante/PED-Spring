@@ -20,21 +20,22 @@ public class WebSecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.csrf().disable().httpBasic(Customizer.withDefaults()).authorizeRequests(
-            authorize -> authorize.requestMatchers(HttpMethod.GET, "/api/v1/ped/aula/").permitAll()
-                                  .requestMatchers(HttpMethod.GET, "/api/v1/ped/planosAula").permitAll());
+            authorize -> authorize.requestMatchers(HttpMethod.GET, "/api/v1/ped/aula/").authenticated()
+                                  .requestMatchers(HttpMethod.GET, "/api/v1/ped/planosAula").authenticated()
+                                  .requestMatchers(HttpMethod.POST, "/api/v1/ped/planosAula").authenticated()
+                                  .requestMatchers(HttpMethod.DELETE, "/api/v1/ped/planosAula").authenticated());
 
         return http.build();
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-        .username("ifsp")
-        .password("1234")
-        .build();
-        return new InMemoryUserDetailsManager(user);
+    public PasswordEncoder passwordEncoder() {
+            return new BCryptPasswordEncoder();    
     }
 
-
+    @Bean
+    public UserDetailsService myUserDetailsService() {
+        return new MyUserDetailService();
+    }
 
 }

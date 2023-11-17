@@ -28,9 +28,16 @@ public class ProfessorControle {
     }
 
     @PostMapping("/api/v1/ped/professor/")
-    public Professor endPoint2(@RequestBody Professor prof) {
-        repo.save(prof);
-        return prof;
+    public String endPoint2(@RequestBody Professor prof) {
+        prof.setPassword(
+                passwordEncoder.encode(prof.getPassword())
+            );
+            Professor profCriado = ProfessorRepository.save(prof);
+    
+            if(profCriado != null)
+                return "Usuário criado com sucesso!";        
+            
+            return "Erro ao criar usuário";
     }
 
     @PutMapping("/api/v1/ped/professor/")

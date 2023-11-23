@@ -13,9 +13,8 @@ public class Professor{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    String nomeC, usuario, senha;
+    String nomeC, username, senha;
 
-    int atual;
 
     public String getNomeC() {
         return nomeC;
@@ -25,12 +24,12 @@ public class Professor{
         this.nomeC = nomeC;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getSenha() {
@@ -39,14 +38,6 @@ public class Professor{
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public int getAtual() {
-        return atual;
-    }
-
-    public void setAtual(int usuA) {
-        this.atual = usuA;
     }
 
     public Long getId() {

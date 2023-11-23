@@ -30,7 +30,7 @@ public class MyUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         // TODO Auto-generated method stub
-        return this.professorAtual.getUsuario();
+        return this.professorAtual.getUsername();
     }
 
     @Override

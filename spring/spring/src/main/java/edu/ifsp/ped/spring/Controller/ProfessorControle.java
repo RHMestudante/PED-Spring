@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -22,6 +23,9 @@ public class ProfessorControle {
     @Autowired
     ProfessorRepository repo;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @GetMapping("/api/v1/ped/professor/")
     public ArrayList<Professor> endPoint1() {
         return (ArrayList<Professor>) repo.findAll();
@@ -29,10 +33,10 @@ public class ProfessorControle {
 
     @PostMapping("/api/v1/ped/professor/")
     public String endPoint2(@RequestBody Professor prof) {
-        prof.setPassword(
-                passwordEncoder.encode(prof.getPassword())
+        prof.setSenha(
+                passwordEncoder.encode(prof.getSenha())
             );
-            Professor profCriado = ProfessorRepository.save(prof);
+            Professor profCriado = repo.save(prof);
     
             if(profCriado != null)
                 return "Usuário criado com sucesso!";        

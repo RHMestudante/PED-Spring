@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+import edu.ifsp.ped.spring.Model.Objetos.Professor;
 
 public class MyUserDetails implements UserDetails {
 
